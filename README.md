@@ -1,4 +1,4 @@
-|# Binclock
+# Binclock
 
 Tiny binary clock for your terminal. Written in Go with [tcell] library.
 
