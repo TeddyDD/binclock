@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/gdamore/tcell"
-	"github.com/gdamore/tcell/encoding"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/gdamore/tcell"
+	"github.com/gdamore/tcell/encoding"
 )
 
 var (
@@ -45,14 +46,13 @@ func main() {
 	encoding.Register()
 	defaultStyle = tcell.StyleDefault.
 		Background(tcell.ColorBlack).Foreground(tcell.ColorWhite)
-	s, err := tcell.NewScreen()
-	ticker := time.NewTicker(time.Second)
-	defer ticker.Stop()
 
+	s, err := tcell.NewScreen()
 	if err != nil {
 		log.Fatalf("Error when creating screen: %s", err.Error())
 		os.Exit(1)
 	}
+
 	err = s.Init()
 	defer s.Fini()
 	if err != nil {
@@ -83,6 +83,9 @@ func main() {
 	events := make(chan tcell.Event)
 	signals := make(chan os.Signal, 2)
 	signal.Notify(signals, syscall.SIGTERM, os.Interrupt)
+
+	ticker := time.NewTicker(time.Second)
+	defer ticker.Stop()
 
 	go func() {
 		for {

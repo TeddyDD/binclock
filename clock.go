@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/gdamore/tcell"
 	"strings"
 	"time"
+
+	"github.com/gdamore/tcell"
 )
 
 // Clock keeps current time and 2d array of bits
