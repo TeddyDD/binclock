@@ -61,9 +61,9 @@ func (c ClockWidget) Draw(s tcell.Screen, style *tcell.Style) {
 		for x := 0; x < 6; x++ {
 			num := c.Display[x][y]
 			if num == 0 {
-				s.SetContent(cx, cy, ClockInactiveDefault, nil, *style)
+				s.SetContent(cx, cy, c.bitOff, nil, *style)
 			} else {
-				s.SetContent(cx, cy, ClockActiveDefault, nil, *style)
+				s.SetContent(cx, cy, c.bitOn, nil, *style)
 			}
 			cx += c.padX
 			if x == 1 || x == 3 {

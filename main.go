@@ -1,25 +1,28 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+	"unicode/utf8"
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
 )
 
 var (
-	defaultStyle tcell.Style
+	defaultStyle               tcell.Style
+	clockActive, clockInactive string
 )
 
 const (
 	// ClockActiveDefault is default char used for active bit in clock
-	ClockActiveDefault = '■'
+	ClockActiveDefault = "■"
 	// ClockInactiveDefault is default char used for inactive bit in clock
-	ClockInactiveDefault = '□'
+	ClockInactiveDefault = "□"
 )
 
 // Util functions
@@ -43,6 +46,10 @@ func getBin(n int) [4]int {
 }
 
 func main() {
+	flag.StringVar(&clockActive, "o", ClockActiveDefault, "active bit char")
+	flag.StringVar(&clockInactive, "z", ClockInactiveDefault, "inactive bit char")
+	flag.Parse()
+
 	encoding.Register()
 	defaultStyle = tcell.StyleDefault.
 		Background(tcell.ColorBlack).Foreground(tcell.ColorWhite)
@@ -64,14 +71,17 @@ func main() {
 	defer s.ShowCursor(1, 1)
 	s.Clear()
 
+	on, _ := utf8.DecodeRuneInString(clockActive)
+	off, _ := utf8.DecodeLastRuneInString(clockInactive)
+
 	cfg := &ClockWidgetConfig{
 		x:          0,
 		y:          0,
 		padX:       2,
 		padY:       2,
 		sectionPad: 2,
-		bitOn:      ClockActiveDefault,
-		bitOff:     ClockInactiveDefault,
+		bitOn:      on,
+		bitOff:     off,
 	}
 
 	clock := newClockWidget(cfg)
