@@ -76,7 +76,7 @@ func (c ClockWidget) Draw(s tcell.Screen, style *tcell.Style) {
 }
 
 func (c ClockWidget) size() (int, int) {
-	return (c.padX * 4) + (c.sectionPad * 2), (c.padY * 4)
+	return (c.padX * 5) + (c.sectionPad * 2), (c.padY * 4)
 }
 
 // CenterPos changes x and y values of ClockWidget to
