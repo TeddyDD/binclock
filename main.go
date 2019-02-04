@@ -72,7 +72,7 @@ func main() {
 	s.Clear()
 
 	on, _ := utf8.DecodeRuneInString(clockActive)
-	off, _ := utf8.DecodeLastRuneInString(clockInactive)
+	off, _ := utf8.DecodeRuneInString(clockInactive)
 
 	cfg := &ClockWidgetConfig{
 		x:          0,
