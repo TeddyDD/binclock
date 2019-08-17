@@ -8,8 +8,10 @@ Tiny binary clock for your terminal. Written in Go with [tcell] library.
 
 ```
 go get -u github.com/TeddyDD/binclock
-
 ```
+
+or download [binary release](https://github.com/TeddyDD/binclock/releases)
+for your OS
 
 # Usage
 
