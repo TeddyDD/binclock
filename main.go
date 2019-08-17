@@ -50,7 +50,7 @@ func getBin(n int) [4]int {
 
 // https://github.com/golang/go/issues/20455
 func fixTimezone() {
-	if runtime.GOOS != "linux" {
+	if runtime.GOOS != "android" {
 		return
 	}
 	out, err := exec.Command("/system/bin/getprop", "persist.sys.timezone").Output()
