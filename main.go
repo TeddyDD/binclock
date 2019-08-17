@@ -4,7 +4,10 @@ import (
 	"flag"
 	"log"
 	"os"
+	"os/exec"
 	"os/signal"
+	"runtime"
+	"strings"
 	"syscall"
 	"time"
 	"unicode/utf8"
@@ -45,7 +48,24 @@ func getBin(n int) [4]int {
 	return result
 }
 
+// https://github.com/golang/go/issues/20455
+func fixTimezone() {
+	if runtime.GOOS != "linux" {
+		return
+	}
+	out, err := exec.Command("/system/bin/getprop", "persist.sys.timezone").Output()
+	if err != nil {
+		return
+	}
+	z, err := time.LoadLocation(strings.TrimSpace(string(out)))
+	if err != nil {
+		return
+	}
+	time.Local = z
+}
+
 func main() {
+	fixTimezone()
 	flag.StringVar(&clockActive, "o", ClockActiveDefault, "active bit char")
 	flag.StringVar(&clockInactive, "z", ClockInactiveDefault, "inactive bit char")
 	flag.Parse()
