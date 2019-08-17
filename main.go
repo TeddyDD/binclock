@@ -111,6 +111,9 @@ loop:
 		case ev := <-events:
 			switch ev := ev.(type) {
 			case *tcell.EventKey:
+				if ev.Rune() == 'q' {
+					break loop
+				}
 				switch ev.Key() {
 				case tcell.KeyEscape, tcell.KeyCtrlC:
 					break loop
