@@ -42,6 +42,7 @@ func (c *Clock) updateDisplaySection(section, number int) {
 	c.Display[s+1] = getBin(b)
 }
 
+// ClockWidgetConfig contains configuration of clock widget
 type ClockWidgetConfig struct {
 	x, y, padX, padY, sectionPad int
 	bitOn                        rune
