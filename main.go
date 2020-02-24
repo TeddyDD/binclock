@@ -19,6 +19,8 @@ import (
 var (
 	defaultStyle               tcell.Style
 	clockActive, clockInactive string
+
+	reverseStyle bool
 )
 
 const (
@@ -68,11 +70,16 @@ func main() {
 	fixTimezone()
 	flag.StringVar(&clockActive, "o", ClockActiveDefault, "active bit char")
 	flag.StringVar(&clockInactive, "z", ClockInactiveDefault, "inactive bit char")
+	flag.BoolVar(&reverseStyle, "r", false, "reverse colors for clock bits")
 	flag.Parse()
 
 	encoding.Register()
+	bg, fg := tcell.ColorBlack, tcell.ColorWhite
+	if reverseStyle {
+		bg, fg = tcell.ColorWhite, tcell.ColorBlack
+	}
 	defaultStyle = tcell.StyleDefault.
-		Background(tcell.ColorBlack).Foreground(tcell.ColorWhite)
+		Background(bg).Foreground(fg)
 
 	s, err := tcell.NewScreen()
 	if err != nil {
