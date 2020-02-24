@@ -17,6 +17,7 @@ for your OS
 
 Run `binclock` in terminal. <kbd>Esc</kbd>, <kbd>q</kbd> or <kbd>CTRL</kbd>
 <kbd>C</kbd> to quit. You can set characters used by clock to display on
-and off bits with `-o` and `-z` flags.
+and off bits with `-o` and `-z` flags. `-r` flag reverse colors of active
+and inactive bits (useful for white color schemes)
 
 [tcell]: https://github.com/gdamore/tcell
