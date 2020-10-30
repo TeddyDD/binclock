@@ -1,6 +1,5 @@
 # Binclock
 
-[![HitCount](http://hits.dwyl.com/TeddyDD/binclock.svg)](http://hits.dwyl.com/TeddyDD/binclock) 
 ![License](https://img.shields.io/github/license/teddydd/binclock?style=flat-square)
 ![Release](https://img.shields.io/github/v/release/teddydd/binclock?style=flat-square)
 
