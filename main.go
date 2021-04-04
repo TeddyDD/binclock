@@ -12,8 +12,8 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/gdamore/tcell"
-	"github.com/gdamore/tcell/encoding"
+	"github.com/gdamore/tcell/v2"
+	"github.com/gdamore/tcell/v2/encoding"
 )
 
 var (
@@ -74,6 +74,7 @@ func main() {
 	flag.Parse()
 
 	encoding.Register()
+
 	bg, fg := tcell.ColorBlack, tcell.ColorWhite
 	if reverseStyle {
 		bg, fg = tcell.ColorWhite, tcell.ColorBlack
@@ -158,5 +159,4 @@ loop:
 			s.Show()
 		}
 	}
-
 }
