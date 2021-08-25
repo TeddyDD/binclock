@@ -1,4 +1,4 @@
-module go.teddydd.me/binclock
+module go.teddydd.me/binclock/v6
 
 go 1.17
 
