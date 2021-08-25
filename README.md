@@ -11,7 +11,7 @@ Tiny binary clock for your terminal. Written in Go with [tcell] library.
 ## Installation
 
 ```
-go install go.teddydd.me/binclock
+go install go.teddydd.me/binclock/v6@latest
 ```
 
 or download [binary release](https://github.com/TeddyDD/binclock/releases)
