@@ -16,6 +16,7 @@ mkdir -p dist
 
 # CGO_ENABLED=0 GOOS=darwin    GOARCH=386      go build -ldflags="-s -w" && sync && tar czf dist/binclock-$version-darwin-386.tar.gz      binclock --remove-files
 CGO_ENABLED=0 GOOS=darwin    GOARCH=amd64    go build -ldflags="-s -w" && sync && tar czf dist/binclock-$version-darwin-amd64.tar.gz    binclock --remove-files
+CGO_ENABLED=0 GOOS=darwin    GOARCH=arm64    go build -ldflags="-s -w" && sync && tar czf dist/binclock-$version-darwin-arm64.tar.gz    binclock --remove-files
 # CGO_ENABLED=0 GOOS=dragonfly GOARCH=amd64    go build -ldflags="-s -w" && sync && tar czf dist/binclock-$version-dragonfly-amd64.tar.gz binclock --remove-files
 # CGO_ENABLED=0 GOOS=freebsd   GOARCH=386      go build -ldflags="-s -w" && sync && tar czf dist/binclock-$version-freebsd-386.tar.gz     binclock --remove-files
 CGO_ENABLED=0 GOOS=freebsd   GOARCH=amd64    go build -ldflags="-s -w" && sync && tar czf dist/binclock-$version-freebsd-amd64.tar.gz   binclock --remove-files
