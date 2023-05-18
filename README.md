@@ -1,6 +1,6 @@
 # Binclock
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/teddydd/binclock/Build?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/teddydd/binclock/go.yml?branch=master)
 ![License](https://img.shields.io/github/license/teddydd/binclock?style=flat-square)
 ![Release](https://img.shields.io/github/v/release/teddydd/binclock?style=flat-square)
 
